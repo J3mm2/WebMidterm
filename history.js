@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { readFileSync } from 'fs';
-import { searchFlow } from './app.js';
+import { handleSearch } from './app.js';
 
 const historyCommand = async (arg) => {
     if (arg !== 'keywords') {
@@ -37,7 +37,7 @@ const historyCommand = async (arg) => {
         return;
     }
 
-    await searchFlow(answer.keyword);
+    await handleSearch(answer.keyword);
 };
 
 export { historyCommand };

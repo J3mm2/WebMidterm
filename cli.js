@@ -2,7 +2,7 @@ import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { handleSearch } from './app.js';
-import { historyCommand } from './history.js';
+import { historyCommand } from './app.js';
 
 yargs(hideBin(process.argv))
     // command for search

@@ -19,7 +19,7 @@ yargs(hideBin(process.argv))
     .command('history <keywords>', 'shows searched keywords', (yargs) => {
         return yargs.positional('keywords', {
             describe: 'searched words',
-            type: 'array'
+            type: 'string'
         });
         
     }, (args) => {

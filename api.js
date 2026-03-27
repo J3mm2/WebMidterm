@@ -34,14 +34,12 @@ async function searchEvents(keyword) {
 async function getEventById(eventId) {
   try {
     const url = `${BASE_URL}/events/${eventId}.json?apikey=${API_KEY}`;
-
     const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`Ticketmaster get by id failed: ${response.status}`);
     }
 
-    // Return the event details as an object
     const data = await response.json();
     return data;
 

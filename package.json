@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^17.3.1",
-    "inquirer": "^13.3.2"
+    "inquirer": "^13.3.2",
+    "yargs": "^18.0.0"
   }
 }

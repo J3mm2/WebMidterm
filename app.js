@@ -39,22 +39,22 @@ export async function handleSearch(keyword) {
 
   saveKeyword(keyword);
 
-  const choices = [
-    { name: "Exit", value: "exit" },
-    ...results.map((event) => ({
-      name: event.name,
-      value: event.id,
-    })),
-  ];
+ const choices = [
+  { name: "Exit", value: "exit" },
+  ...results.map((event, index) => ({
+    name: `${index + 1}. ${event.name || "Unnamed Event"} - ${event.id || "No ID"}`,
+    value: event.id,
+  })),
+];
 
   const answer = await inquirer.prompt([
-    {
-      type: "list",
-      name: "eventId",
-      message: "Choose an event:",
-      choices,
-    },
-  ]);
+  {
+    type: "rawlist",
+    name: "eventId",
+    message: "Choose an event:",
+    choices,
+  },
+]);
 
   if (answer.eventId === "exit") {
     console.log("Goodbye.");
@@ -67,7 +67,7 @@ export async function handleSearch(keyword) {
     console.log("Could not get event details.");
     return;
   }
-
+  console.log(event); // debug
   console.log("\nEvent Details");
   console.log("-------------");
   console.log("Name:", event.name);

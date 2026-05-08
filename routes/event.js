@@ -37,4 +37,21 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const event = await getEventById(id);
+
+    res.json(event);
+  } catch (error) {
+    console.error("Error getting event by ID:", error.message);
+
+    res.status(500).json({
+      error: "Failed to get event details"
+    });
+  }
+});
+
+
 export default router;

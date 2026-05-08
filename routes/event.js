@@ -1,5 +1,5 @@
 import express from "express";
-import { searchEvents } from "../services/api.js";
+import { searchEvents, getEventById } from "../services/api.js";
 import db from "../services/db.js";
 
 const router = express.Router();

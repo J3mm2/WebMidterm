@@ -68,7 +68,7 @@ const mongo = () => {
         try {
             const collection = db.collection(collectionName);
             // specify the update to set a value for the field
-            return await collection.updateOne(query, { $set: data });
+            return await collection.updateOne(query, { $set: data }, { upsert: true });
         } catch (error) {
             console.error(error);
         }

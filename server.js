@@ -1,5 +1,5 @@
-import db from './db.js';
-import topicRoutes from './routes/topic.js';
+import { mongo } from './services/db.js';
+import topicRoutes from './routes/event.js';
 import historyRoutes from './routes/history.js';
 
 const app = express();

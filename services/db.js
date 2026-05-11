@@ -1,7 +1,10 @@
 // mongodb+srv://admin:<db_password>@cluster0.vbffc2e.mongodb.net/?appName=Cluster0
 
-import dotenv from 'dotenv';
-import { MongoClient } from 'mongodb';
+import dotenv from "dotenv";
+import { MongoClient } from "mongodb";
+import dns from "dns";
+
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 // wraps MongoClient and exposes simple helper methods for our app
 const mongo = () => {
@@ -10,7 +13,7 @@ const mongo = () => {
 
     // build the connection string from env vars
     const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
-    const mongoURI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`;
+    const mongoURI = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority&appName=FinalProject`;
 
     let client;
     let db;
